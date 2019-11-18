@@ -27,16 +27,18 @@ export const fail = (expected, operator, actual) => {
 }
 
 
-const EMPTY_ARGS = param => {
-    if (!param) return true
-}
-
-const ERROR_MESSAGE = () => {
-    throw new Error("Missing arguments!")
-}
-
 // => Create an expectation for a spec.
 export const expect = expected => {
+
+    /* Error Notice */
+    const EMPTY_ARGS = param => {
+        if (!param) return true
+    }
+
+    const ERROR_MESSAGE = () => {
+        throw new Error("Missing arguments!")
+    }
+
 
     /* ----- Matchers ----- */
 
