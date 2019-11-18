@@ -27,35 +27,40 @@ export const fail = (expected, operator, actual) => {
 }
 
 
+const EMPTY_ARGS = param => {
+    if (!param) return true
+}
+
+const ERROR_MESSAGE = () => {
+    throw new Error("Missing arguments!")
+}
+
 // => Create an expectation for a spec.
 export const expect = expected => {
 
     /* ----- Matchers ----- */
 
     // => Strict equality (===)
-    const toBe = actual => {
-        if (actual !== expected) fail(expected, ' !== ', actual)
+    const strictEqual = actual => {
+        EMPTY_ARGS(actual) ? ERROR_MESSAGE() :
+            (actual !== expected) ? fail(expected, ' !== ', actual) : null;
     }
 
     // => Strict equality (!==)
-    const notToBe = actual => {
-        if (actual === expected) fail(expected, ' === ', actual)
-    }
-
-    // => Nilai actual lebih besar dari nilai expected
-    const toBeGreaterThan = actual => {
-        if (actual > expected) fail(expected, ' > ', actual)
+    const notStrictEqual = actual => {
+        EMPTY_ARGS(actual) ? ERROR_MESSAGE() :
+            (actual === expected) ? fail(expected, ' === ', actual) : null;
     }
 
     // => Check object length same or not
     const toHaveLength = actual => {
-        if (actual !== Object.keys(expected).length) fail(expected, ' !== ', actual)
+        EMPTY_ARGS(actual) ? ERROR_MESSAGE() :
+            (actual !== Object.keys(expected).length) ? fail(expected, ' !== ', actual) : null;
     }
 
     return {
-        toBe,
-        notToBe,
-        toBeGreaterThan,
+        strictEqual,
+        notStrictEqual,
         toHaveLength
     }
 }

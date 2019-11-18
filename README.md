@@ -23,3 +23,14 @@ Setup Project:
       ]
   }
 - Describe, it, toBe, expect => like "RSpec" style tests 
+- 
+
+EMPTY_ARGS(actual) ? ERROR_MESSAGE() : (actual !== expected) ? fail(expected, ' !== ', actual) : null;
+
+if (!EMPTY_ARGS(actual)) {
+            if (actual !== expected) {
+                fail(expected, ' !== ', actual)
+            }
+        } else {
+            ERROR_MESSAGE();
+        }
