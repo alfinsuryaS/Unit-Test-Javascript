@@ -2,7 +2,7 @@
 /* Lib Test */
 
 // Create a group of specs (often called a suite). Calls to describe can be nested
-const describe = (callBack) => {
+const describe = callBack => {
     for (let describeTitle in callBack) {
         let describes = callBack[describeTitle];
         describes();
@@ -10,9 +10,9 @@ const describe = (callBack) => {
 }
 
 // => Define a single spec. A spec should contain one or more expectations that test the state of the code. 
-const test = (testName, callBack) => {
+const test = async (testName, callBack) => {
     try {
-        callBack();
+        await callBack();
         console.log(`✓ ${testName}`)
     } catch (e) {
         console.error(`✕ ${testName}`)
@@ -60,8 +60,6 @@ const expect = expected => {
             (actual !== Object.keys(expected).length) ?
                 fail(`Your length is: ${expected.length}`, ' !== ', actual) : null;
     }
-
-    // => Async Test
 
     return {
         strictEqual,

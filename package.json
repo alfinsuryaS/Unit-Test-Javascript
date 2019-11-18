@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon --exec babel-node ./src/__tests__/helloworld.test.js",
-    "globalTest": "nodemon  --require --exec babel-node ./src/helloworld.js ./src/test.js "
+    "test-watch": "nodemon --exec babel-node ./src/__tests__/helloworld.test.js",
+    "global-test-watch": "nodemon --require --exec babel-node ./src/helloworld.js ./src/test.js "
   },
   "author": "",
   "license": "ISC",
