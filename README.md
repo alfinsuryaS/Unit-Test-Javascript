@@ -23,14 +23,6 @@ Setup Project:
       ]
   }
 - Describe, it, toBe, expect => like "RSpec" style tests 
-- 
+- Unit Test: Unit testing is the process through which units of source code are tested to verify if they work properly. Performing unit tests is a way to ensure that all functionalities of an application are working as they should. Unit tests inform the developer when a change in one unit interferes with the functionality of another
 
-EMPTY_ARGS(actual) ? ERROR_MESSAGE() : (actual !== expected) ? fail(expected, ' !== ', actual) : null;
-
-if (!EMPTY_ARGS(actual)) {
-            if (actual !== expected) {
-                fail(expected, ' !== ', actual)
-            }
-        } else {
-            ERROR_MESSAGE();
-        }
+- For globally you can use webpacks loader: expose-loader

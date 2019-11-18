@@ -2,7 +2,7 @@
 /* Lib Test */
 
 // Create a group of specs (often called a suite). Calls to describe can be nested
-export const describe = (callBack) => {
+const describe = (callBack) => {
     for (let describeTitle in callBack) {
         let describes = callBack[describeTitle];
         describes();
@@ -10,7 +10,7 @@ export const describe = (callBack) => {
 }
 
 // => Define a single spec. A spec should contain one or more expectations that test the state of the code. 
-export const test = (testName, callBack) => {
+const test = (testName, callBack) => {
     try {
         callBack();
         console.log(`✓ ${testName}`)
@@ -22,13 +22,13 @@ export const test = (testName, callBack) => {
 
 
 // => Explicitly mark a spec as failed.
-export const fail = (expected, operator, actual) => {
+const fail = (expected, operator, actual) => {
     throw new Error('Failed: ' + expected + operator + actual);
 }
 
 
 // => Create an expectation for a spec.
-export const expect = expected => {
+const expect = expected => {
 
     /* Error Notice */
     const EMPTY_ARGS = param => {
@@ -57,12 +57,23 @@ export const expect = expected => {
     // => Check object length same or not
     const toHaveLength = actual => {
         EMPTY_ARGS(actual) ? ERROR_MESSAGE() :
-            (actual !== Object.keys(expected).length) ? fail(expected, ' !== ', actual) : null;
+            (actual !== Object.keys(expected).length) ?
+                fail(`Your length is: ${expected.length}`, ' !== ', actual) : null;
     }
+
+    // => Async Test
 
     return {
         strictEqual,
         notStrictEqual,
         toHaveLength
     }
+}
+
+
+/* Make globally */
+module.exports = {
+    describe,
+    test,
+    expect
 }
