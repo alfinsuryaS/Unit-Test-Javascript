@@ -1,20 +1,17 @@
-import { asyncFunc } from '../helloworld'
-import { describe, test, expect } from '../../index'
+
+import * as a from '../utils'
+import { describe, test, expect, fn } from '../../index'
+
+const originalGetWinner = a.getWinner
+a.getWinner = fn((p1, p2) => p2);
+
+const winner = a.thumbWar('Kent C. Dodds', 'Ken Wheeler');
 
 describe({
-    'matching cities to foods': () => {
-        test('Vienna <3 sausage', () => {
-            expect(6).strictEqual(7)
-        });
-    },
-})
-
-
-describe({
-    '#testing-async-function': () => {
-        test('Check resolve or not', async () => {
-            const result = await asyncFunc();
-            expect('resolved').strictEqual(result)
+    '#blank': () => {
+        test('#test', () => {
+            expect(winner).strictEqual('Kent C. Dodds');
         })
     }
 })
+a.getWinner = originalGetWinner

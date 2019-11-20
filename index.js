@@ -27,6 +27,18 @@ const fail = (expected, operator, actual) => {
 }
 
 
+// => Mocking function
+const fn = (impl = () => { }) => {
+    const mockFn = (...args) => {
+        mockFn.mock.calls.push(args)
+        return impl(...args)
+    }
+    mockFn.mock = { calls: [] }
+    mockFn.mockImplementation = newImpl => (impl = newImpl)
+    return mockFn
+}
+
+
 // => Create an expectation for a spec.
 const expect = expected => {
 
@@ -73,5 +85,6 @@ const expect = expected => {
 module.exports = {
     describe,
     test,
-    expect
+    expect,
+    fn
 }
