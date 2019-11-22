@@ -10,7 +10,7 @@ const asyncFunc = () => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve('resolved')
-        }, 6000);
+        }, 2000);
     })
 }
 

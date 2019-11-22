@@ -28,7 +28,7 @@ const fail = (expected, operator, actual) => {
 
 
 // => Mocking function
-const fn = (impl = () => { }) => {
+const mock = (impl = () => { }) => {
     const mockFn = (...args) => {
         mockFn.mock.calls.push(args)
         return impl(...args)
@@ -54,7 +54,7 @@ const expect = expected => {
 
     /* ----- Matchers ----- */
 
-    // => Strict equality (===)
+    // => Strict equality (===) 
     const strictEqual = actual => {
         EMPTY_ARGS(actual) ? ERROR_MESSAGE() :
             (actual !== expected) ? fail(expected, ' !== ', actual) : null;
@@ -86,5 +86,5 @@ module.exports = {
     describe,
     test,
     expect,
-    fn
+    mock
 }
