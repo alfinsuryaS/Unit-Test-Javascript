@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test-watch": "nodemon --exec babel-node ./src/__tests__/utils.test.js",
-    "global-test-watch": "nodemon --require --exec babel-node ./src/utils.js ./src/setup-global.js"
+    "global-test-watch": "nodemon --require --exec babel-node ./setup-global.js ./src/__tests__/global.test.js "
   },
   "author": "",
   "license": "ISC",
