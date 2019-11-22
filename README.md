@@ -1,11 +1,12 @@
-
 # JavaScript Testing Fundamentals
 
 <p align="center" style="font-size: 1.2rem;">
   Learn how automated JavaScript testing works by building your own framework!
 </p>
 
-
+Required packages:
+- nodemon
+- babel-cli
 
 Order of material:
 
