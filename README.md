@@ -1,7 +1,7 @@
-# JavaScript Testing Fundamentals
+# Unit Test Using Pure Javascript
 
 <p align="center" style="font-size: 1.2rem;">
-  Learn how automated JavaScript testing works by building your own framework!
+  Learn how automated JavaScript testing works by building your own unit testing framework!
 </p>
 
 Required packages:
