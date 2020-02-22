@@ -1,4 +1,4 @@
-# Unit Test Using Pure Javascript
+<h1 align="center"> Unit Test Using Pure Javascript</h1>
 
 <p align="center" style="font-size: 1.2rem;">
   Learn how automated JavaScript testing works by building your own unit testing framework!
